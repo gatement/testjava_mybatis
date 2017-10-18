@@ -14,12 +14,11 @@ public class App {
 		String resource = "lgh/test/mybatis/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			Blog blog = (Blog) session.selectOne("org.mybatis.example.BlogMapper.selectBlog", 1);
+
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			BlogMapper mapper = session.getMapper(BlogMapper.class);
+			Blog blog = mapper.selectBlog(1);
 			System.out.println("id=" + blog.id + ", name=" + blog.name);
-		} finally {
-			session.close();
 		}
 	}
 }
