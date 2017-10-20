@@ -1,6 +1,33 @@
 package lgh.test.mybatis;
 
+/**
+ * DO
+ * 
+ * @author JohnsonLau
+ * @date 2017/10/20
+ */
 public class Blog {
-	public int id;
-	public String name;
+	private Integer id;
+	private String name;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Blog [id=%s, name=%s]", id, name);
+	}
 }

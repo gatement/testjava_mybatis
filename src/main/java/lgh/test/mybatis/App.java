@@ -14,10 +14,10 @@ public class App {
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 		try (SqlSession session = sqlSessionFactory.openSession()) {
-			//Blog blog = (Blog) session.selectOne("lgh.test.mybatis.BlogMapper.selectBlog", 1);
+			// Blog blog = (Blog) session.selectOne("lgh.test.mybatis.BlogMapper.selectBlog", 1);
 			BlogMapper mapper = session.getMapper(BlogMapper.class);
 			Blog blog = mapper.selectBlog(1);
-			System.out.println("id=" + blog.id + ", name=" + blog.name);
+			System.out.println("id=" + blog.getId() + ", name=" + blog.getName());
 		}
 	}
 }
