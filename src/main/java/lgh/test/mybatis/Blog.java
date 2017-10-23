@@ -10,6 +10,11 @@ public class Blog {
 	private Integer id;
 	private String name;
 
+	public Blog(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public Integer getId() {
 		return id;
 	}
